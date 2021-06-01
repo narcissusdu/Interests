@@ -13,16 +13,18 @@ namespace MayDiseaseClock
         public MainWindow()
         {
             InitializeComponent();
-            Init();
             DataContext = this;
+            Init();
         }
 
-        private System.Timers.Timer MyTimer { get; set; }
+        private Timer MyTimer { get; set; }
         private DateTime CachedDate { get; set; }
 
         private void Init()
         {
-            MyTimer = new System.Timers.Timer
+            MyTimer_Elapsed(null, null);
+
+            MyTimer = new Timer
             {
                 AutoReset = true,
                 Enabled = true,
